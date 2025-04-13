@@ -509,7 +509,7 @@ One of the big advantages of our rank-1 matrices is its space efficiency: to "st
 # ╔═╡ f9556098-8504-11eb-08a0-39fbe00892da
 answer = md"""
 
-From rank n/2
+From rank n/2 onwards
 
 Because each rank contributes 2n entries. n/2 such matrices would contribute to a sum total of n^2 entries, which is the same amount of storage as the dense version. 
 """
@@ -544,7 +544,7 @@ If we try to run the `svd` function on a `RankOneMatrix`, you will see that it d
 """
 
 # ╔═╡ 6f78b3bb-5440-4f34-849a-fa8e21972fa8
-A = RankOneMatrix(rand(3),rand(4))
+A_one = RankOneMatrix(rand(3),rand(4))
 
 # ╔═╡ 44b8fbf1-411f-4ce4-b5d7-e12f2d6be51b
 md"""
@@ -570,10 +570,10 @@ begin
 end
 
 # ╔═╡ bbc4a595-a63e-4a12-9690-f39a23b30ae1
-svd(A)
+svd(A_one)
 
 # ╔═╡ 9ae28bc5-d9cb-479d-8c22-7c9248cd5fa0
-U_one, S_one, V_one = svd(A)
+U_one, S_one, V_one = svd(A_one)
 
 # ╔═╡ 0cf29d7e-bd83-4c5f-bd41-e8e7c2587188
 md"""
@@ -603,7 +603,7 @@ function numerical_rank(A::AbstractMatrix; tol=1e-5)
 end
 
 # ╔═╡ d3420859-d558-47cb-aaf7-d51a5e2d1f6e
-numerical_rank(A)
+numerical_rank(A_one)
 
 # ╔═╡ 207d2f4c-cbe8-4828-ab3f-100809bb93e9
 numerical_rank(rand(3,3))
